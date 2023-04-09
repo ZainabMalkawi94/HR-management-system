@@ -7,6 +7,6 @@
     - Employee's Level.
     - Profile Picture.
 - Build a prototype to calculate the net salary for each employee.
-- print Out the name of employee and his/her salary.
+- Print Out the Id and the name of each employee and his/her salary.
 
 -----------------------------------------------------------------------
