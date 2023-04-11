@@ -52,7 +52,6 @@ li {
 
 .footer {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
   background-color: teal;
@@ -83,38 +82,178 @@ li {
   transition: 0.3s ease;
 }
 
-.container {
-  position: absolute;
-  transform: translate(-50%,-50%);
-  top: 35%;
-  left: 50%;
+
+
+
+.box{
+	position:absolute;
+	left:50%;
+  right: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+  background-color:rgba(0, 128, 128, 0.538);
+	border-radius:3px;
+	padding:70px 100px;
+  width: 50%;
+  height: 75%;
+  opacity: 0.9;
+ 
 }
 
-.titleH2{
-  font-weight: 500;
-  color: #000;
-  opacity: 0.9;
-  font-size: 19px;
-  margin-top: 0;
-  margin-bottom: 60px;
-  text-align: center;
+
+
+.text-center{
+  color:black;	
+	text-transform:uppercase;
+    font-size: 20px;
+    margin:0;
+    display: block;
+    text-align: center;
 }
-input {
-  background: transparent;
-  width: 200px;
-  padding: 1em;
-  margin-bottom: 2em;
-  border: none;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  border-radius: 5000px;
-  backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	
+
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:relative;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	color:black;	
+	transition: all 0.5s ease-in-out;
+}
+
+.botton{
+	background-color:teal;
+	outline: none;
+  border: 0;
+  color: rgb(0, 0, 0);
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-left:auto;
+  margin-right: auto;
+  margin-top: 0px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+  display: block;
+  align-items: center;
+}
+
+.botton:hover {
+  background-color: #ffffff;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid rgb(0, 0, 0);  
+  background:transparent;
+  width:100%;
+  font-size:18px;
+  color:rgb(0, 0, 0);
+  
+}
+
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #000000;	
+}
+
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+}
+
+
+
+
+.select-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.select-container label{
+	position:relative;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	color:rgb(0, 0, 0);	
+	transition: all 0.5s ease-in-out;
+  margin-bottom: 25px;
+}
+
+.select-container select{ 
+  border:0;
+  border-bottom:1px solid rgb(0, 0, 0);  
+  background:transparent;
+  width:100%;
+  font-size:18px;
+  color:rgb(0, 0, 0);
+  
+}
+
+.select-container select:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #000000;	
+}
+
+
+.select-container select:focus ~ label,
+.select-container select:valid ~ label{
+	top:-12px;
+	font-size:12px;
+}
+
+  
+  
+.select-container option
+{
+  color: black;
+
+}
+
+
+
+.text-center2{
+	color:rgb(0, 0, 0);	
+	text-transform:uppercase;
+    font-size: 20px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    margin-top: 560px;
+}
+
+.flex-container {
+ 
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+  background-color: rgba(0, 128, 128, 0.2);
+  float: left;
+  width: auto;
+  display: block;
+  align-items: center;
+ 
+
+
+
+}
+
+.flex-container div {
+  background-color: antiquewhite;
+  width:auto;
+  height: auto;
+  margin: 30px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+  overflow: hidden;
+
 }
 
 
