@@ -1,26 +1,111 @@
-'use strict'
+'use strict';
 
-let myForm = document.getElementById("newEmployeesForm");
+let myForm = document.getElementById('employeesForm');
+let infoSection = document.getElementById('cardSection');
 
 
 
+let employeeArray = [];
+let emplID = 1000;
 
-function Employee(emloyeeID, fullName, department, level, imgURL) {
-    this.emloyeeID = emloyeeID
+function EmployeeInfo( fullName, department, level, imgURL) {
+    this.employeeID = 0;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.imgURL = imgURL;
+    this.salary = 0;
+    employeeArray.push(this);
+
 }
 
-let employeeArray = [];
+console.log(EmployeeInfo);
+/****************************************************************************************************************************/
+myForm.addEventListener('submit',handleSubmit);
+function handleSubmit(event)
+{
+    event.preventDefault();
+    console.log(event);
+   
 
-Employee.prototype.salary = function (level) {
+ let FullName= event.target.FullName.value;
+ let Department= event.target.Department.value;
+ let Level= event.target.Level.value;
+ let Image= event.target.Image.value;
+
+let newEmployee=new EmployeeInfo(FullName,Department,Level,Image);
+console.log(Level);
+newEmployee.EmployeeID();
+newEmployee.Salary(Level);
+newEmployee.Render();
+}
+
+/**********************************************************************************************************************/
+
+EmployeeInfo.prototype.EmployeeID=function()
+{
+ this.employeeID = emplID++;
+}
+
+EmployeeInfo.prototype.Render =function()
+{
+   const imgEl = document.createElement('img');
+   imgEl.src = this.imgURL;
+   infoSection.appendChild(imgEl);
+   console.log(imgEl);
+
+   const NameEl = document.createElement('p');
+   NameEl.textContent = `Name: ${this.fullName}`; 
+   infoSection.appendChild(NameEl);
+
+   const IDEl = document.createElement('p');
+   IDEl.textContent = `ID: ${this.employeeID}` ;
+   infoSection.appendChild(IDEl);
+
+   const departmentEl = document.createElement('p');
+   if (this.department == '1') {
+      departmentEl.textContent = `Department: Administration`;
+      infoSection.appendChild(departmentEl);}
+
+   else if (this.department == '2') {
+      departmentEl.textContent = `Department: Marketing`;
+      infoSection.appendChild(departmentEl);}
+
+   else if (this.department == '3') {
+      departmentEl.textContent = `Department: Development`;
+      infoSection.appendChild(departmentEl);}
+
+   else if (this.department == '4') {
+      departmentEl.textContent = `Department: Finance`;
+      infoSection.appendChild(departmentEl);}
+
+
+   const levelEl = document.createElement('p');
+   if(this.level == '1')
+   {levelEl.textContent = `Level: Junior`;
+   infoSection.appendChild(levelEl);}
+
+   else if(this.level == '2')
+   {levelEl.textContent = `Level: Mid-Senior`;
+   infoSection.appendChild(levelEl);}
+
+   else if(this.level == '3')
+   {levelEl.textContent = `Level: Senior`;
+   infoSection.appendChild(levelEl);}
+
+   const salaryEl = document.createElement('p');
+   salaryEl.textContent = `Salary: ${this.salary}`;
+   infoSection.appendChild(salaryEl);
+}
+
+
+EmployeeInfo.prototype.Salary = function (level) {
     let tax = 0.075;
     let min = 0;
     let max = 0;
     let salary = 0;
-    if (level == "Junior") {
+    let randomSalary = 0;
+    if (level == 1) {
         min = 500;
         max = 1000;
         randomSalary = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -28,47 +113,25 @@ Employee.prototype.salary = function (level) {
 
     }
 
-    else if (level == "Mid-Senior") {
+    else if (level == 2) {
         min = 1000;
         max = 1500;
         randomSalary = Math.floor(Math.random() * (max - min + 1)) + min;
         this.salary = randomSalary-randomSalary * tax;
     }
-    else if (level == "Senior") {
+    else if (level == 3) {
         min = 1500;
         max = 2000;
         randomSalary = Math.floor(Math.random() * (max - min + 1)) + min;
         this.salary = randomSalary-randomSalary * tax;
 
     }
+
+    console.log(this.salary);
 }
-
-Employee.prototype.render = function (){
-    document.write (`ID:${this.emloyeeID} <br> Name: ${this.fullName} <br> Salary: ${this.salary} <br><br>`)
-}
-
-
-
-let ghaziSamer = new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior');
-employeeArray.push(ghaziSamer);
-let lanaAli = new Employee(1001, 'Lana Ali', 'Fainance', 'Senior');
-employeeArray.push(lanaAli);
-let tamaraAyoub = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior');
-employeeArray.push(tamaraAyoub);
-let saifWaleed = new Employee(1003, 'Safi Walid', 'Administration', 'Mid-Senior');
-employeeArray.push(saifWaleed);
-let omarZaid = new Employee(1004, 'Omar Zaid', 'Develoment', 'Senior');
-employeeArray.push(omarZaid);
-let ranaSaleh = new Employee(1005, 'Rana Saleh', 'Develoment', 'Junior');
-employeeArray.push(ranaSaleh);
-let hadiAhmad = new Employee(1006, 'Hadi Ahmad', 'Fainance', 'Mid-Senior');
-employeeArray.push(hadiAhmad);
-
-
+/*************************************************************************************************************************************/
 for(let i = 0 ; i < employeeArray.length ; i++){
     employeeArray[i].salary(employeeArray[i].level);
-}
-
-for(let i = 0 ; i < employeeArray.length ; i++){
     employeeArray[i].render()
 }
+console.log(employeeArray);
