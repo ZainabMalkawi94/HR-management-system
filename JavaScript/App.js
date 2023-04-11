@@ -1,3 +1,10 @@
+'use strict'
+
+let myForm = document.getElementById("newEmployeesForm");
+
+
+
+
 function Employee(emloyeeID, fullName, department, level, imgURL) {
     this.emloyeeID = emloyeeID
     this.fullName = fullName;
