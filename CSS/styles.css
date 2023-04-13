@@ -258,7 +258,8 @@ li {
 
 #Administration div {
   margin :50px;
-  border-radius: 10px;
+  border-radius: 10px ;
+  border-color: #000000;
 }
   
   
