@@ -185,7 +185,7 @@ for (let i = 0; i < employeeArray.length; i++) {
 
     employeeArray[i].CalculateSalary(employeeArray[i].level);
     employeeArray[i].EmployeeID();
-    employeeArray[i].Render();
+   employeeArray[i].Render();
   
   }
   saveData(employeeArray);

@@ -13,3 +13,8 @@
 - Create prototype for generate a unique Employee ID no. and for calculating salary based on the data submited from the form, then render all information for each employee dynamically. 
 - Build a form using HTML, CS, and JavaScript to input the information by client.
 ------------------------------------------------------------------------
+
+## Day 3 (Tuesday 13-04-2023): 
+- Create new js file name's accounting.js  to compute some calculations and fill it in the table.
+- Save data in local storage to protect them after refresh the page.
+- Get data from local storage and use it in some calculations.
